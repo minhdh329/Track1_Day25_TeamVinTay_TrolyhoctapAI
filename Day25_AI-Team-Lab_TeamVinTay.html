@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Day 25 AI Team Lab - Duong Hai Minh</title>
+  <style>
+    @page { size: A4; margin: 12mm 13mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #1d2935; font: 9pt/1.32 Arial, sans-serif; }
+    .page { position: relative; min-height: 272mm; page-break-after: always; break-after: page; }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+    h1 { margin: 0 0 2mm; color: #124d7c; font-size: 21pt; line-height: 1.08; }
+    h2 { margin: 4mm 0 1.5mm; color: #124d7c; font-size: 12pt; }
+    h3 { margin: 3mm 0 1mm; font-size: 10pt; }
+    p { margin: 1.2mm 0; }
+    .meta { margin-bottom: 3mm; color: #536575; font-size: 8pt; }
+    .note { margin: 2mm 0; padding: 2mm 3mm; border-left: 3px solid #3282b8; background: #edf5fa; }
+    .warn { border-left-color: #c47b18; background: #fff7e8; }
+    table { width: 100%; margin: 1.5mm 0 2.5mm; border-collapse: collapse; table-layout: fixed; font-size: 7.4pt; }
+    th, td { padding: 1.4mm 1.6mm; border: 1px solid #cbd4dc; vertical-align: top; overflow-wrap: anywhere; }
+    th { background: #eaf0f4; text-align: left; }
+    .small { font-size: 7.6pt; }
+    .tag { color: #124d7c; font-weight: bold; }
+    .score { text-align: center; font-weight: bold; }
+    .footer { position: absolute; right: 0; bottom: 0; color: #73808b; font-size: 7pt; }
+    .compact h2 { margin-top: 3mm; }
+    ul { margin: 1mm 0 1.5mm 4mm; padding-left: 4mm; }
+    li { margin: .7mm 0; }
+    .goal { padding: 3mm; border: 1px solid #a9cce2; background: #f1f7fb; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <section class="page compact">
+    <h1>Stakeholder Map &amp; Strategy</h1>
+    <div class="meta">Track 1 - Day 27 | Dương Hải Minh | Dự án mẫu: Trợ lý học tập AI hỏi đáp PDF có trích dẫn</div>
+    <div class="note warn"><b>Giả định cần xác minh:</b> Dự án, vai trò và stance dưới đây là bản mẫu vì chưa có stakeholder thực tế được cung cấp. Influence × Interest xác định quadrant; stance phải được hỏi riêng.</div>
+    <h2>Danh sách và bản đồ stakeholder</h2>
+    <table>
+      <thead><tr><th style="width:31%">Stakeholder cụ thể</th><th style="width:12%">Influence</th><th style="width:12%">Interest</th><th style="width:19%">Quadrant</th><th style="width:26%">Stance tạm tính</th></tr></thead>
+      <tbody>
+        <tr><td>Giảng viên hướng dẫn/mentor review MVP</td><td>Cao</td><td>Cao</td><td>Champion</td><td>Ủng hộ mạnh (giả định)</td></tr>
+        <tr><td>Đại diện sinh viên dùng thử</td><td>Thấp</td><td>Cao</td><td>Supporter</td><td>Ủng hộ mạnh (giả định)</td></tr>
+        <tr><td>Trưởng bộ môn/người duyệt pilot</td><td>Cao</td><td>Thấp</td><td>Blocker</td><td>Trung lập/chưa rõ; có thể trì hoãn</td></tr>
+        <tr><td>Cán bộ CNTT/bảo vệ dữ liệu</td><td>Cao</td><td>Thấp</td><td>Blocker</td><td>Thận trọng/chưa rõ</td></tr>
+        <tr><td>Giảng viên sở hữu tài liệu môn học</td><td>Cao</td><td>Cao</td><td>Champion theo quadrant</td><td>Chưa xác minh</td></tr>
+        <tr><td>Cán bộ thư viện/hỗ trợ học tập số</td><td>Thấp</td><td>Thấp</td><td>Bystander</td><td>Chưa xác minh</td></tr>
+      </tbody>
+    </table>
+    <h2>4 ưu tiên: quan tâm, ảnh hưởng và hành động 1-2 tuần</h2>
+    <table>
+      <thead><tr><th style="width:23%">Stakeholder / stance</th><th style="width:23%">Quan tâm / ảnh hưởng</th><th style="width:54%">Hành động cụ thể</th></tr></thead>
+      <tbody>
+        <tr><td>Mentor<br><span class="tag">Ủng hộ mạnh - giả định</span></td><td>Chất lượng học thuật, độ đúng và nguồn; có thể review/kết nối pilot.</td><td>Gửi demo khi có và 3 câu trả lời có nguồn; xin review 20 phút, góp ý tiêu chí và giới thiệu người duyệt pilot nếu phù hợp.</td></tr>
+        <tr><td>Đại diện sinh viên<br><span class="tag">Ủng hộ mạnh - giả định</span></td><td>Dễ dùng, tiết kiệm thời gian, trích dẫn đúng; phản hồi trải nghiệm.</td><td>Mời 3-5 sinh viên thử bộ câu hỏi mẫu; ghi điểm khó hiểu và xin phép dùng phản hồi ẩn danh.</td></tr>
+        <tr><td>Người duyệt pilot<br><span class="tag">Rủi ro cần thuyết phục</span></td><td>Giá trị sư phạm, ảnh hưởng lớp học; có thể cho phép/trì hoãn.</td><td>Gửi đề xuất pilot một trang với mục tiêu, phạm vi, thời lượng, cách đo và phương án dừng; xin quyết định/yêu cầu bổ sung.</td></tr>
+        <tr><td>Cán bộ CNTT/bảo vệ dữ liệu<br><span class="tag">Rủi ro cần xử lý</span></td><td>Lưu trữ, truy cập, xóa dữ liệu; có thể chặn dùng hệ thống/tài liệu.</td><td>Gửi sơ đồ luồng dữ liệu; hỏi yêu cầu trước khi tải tài liệu không công khai hoặc dữ liệu cá nhân.</td></tr>
+      </tbody>
+    </table>
+    <div class="footer">Trang 1 / 4</div>
+  </section>
+
+  <section class="page compact">
+    <h1>Conclusion-First Pitch &amp; RACI</h1>
+    <div class="meta">Người nhận pitch: giảng viên hướng dẫn/mentor | Thời hạn công việc RACI: 1-2 tháng</div>
+    <div class="note"><b>Đề xuất:</b> Xin một buổi review 20 phút để góp ý kế hoạch thử nghiệm giới hạn trước khi xin phép dùng trong lớp.<br><b>Lý do:</b> MVP tập trung vào hỏi đáp tài liệu được phép dùng và hiển thị nguồn; thử nghiệm nhỏ giúp tìm lỗi trước khi mở rộng.<br><b>Bằng chứng:</b> Đã xác định phạm vi MVP và kế hoạch 20 câu hỏi; chưa có kết quả kiểm thử thực tế nên chưa khẳng định độ chính xác.<br><b>Small ask:</b> Góp ý tiêu chí đánh giá và xác định ai cần duyệt tài liệu/pilot.</div>
+    <h2>Phản biện và cách xử lý</h2>
+    <p><b>“Chưa có bằng chứng AI chính xác; tài liệu và dữ liệu người dùng có thể gặp rủi ro.”</b> Đồng ý chưa có kết quả eval. Chỉ dùng tài liệu công khai/được phép, hỏi cán bộ CNTT về lưu trữ/xóa, đối chiếu 20 câu với nguồn; chưa pilot nếu thiếu phê duyệt hoặc câu trả lời không truy được nguồn.</p>
+    <h2>RACI Matrix</h2>
+    <table class="small">
+      <thead><tr><th style="width:28%">Công việc</th><th>Minh</th><th>Mentor</th><th>Chủ tài liệu</th><th>IT/Data</th><th>SV thử</th><th>Duyệt pilot</th></tr></thead>
+      <tbody>
+        <tr><td>Chốt use case/tiêu chí MVP</td><td>R/A</td><td>C</td><td>C</td><td>I</td><td>C</td><td>I</td></tr>
+        <tr><td>Xin phép dùng tài liệu</td><td>R</td><td>C</td><td>A</td><td>C</td><td>I</td><td>I</td></tr>
+        <tr><td>Chốt lưu trữ, truy cập, xóa dữ liệu</td><td>R</td><td>I</td><td>C</td><td>A</td><td>I</td><td>C</td></tr>
+        <tr><td>Xây MVP PDF + trích dẫn</td><td>R/A</td><td>C</td><td>C</td><td>C</td><td>I</td><td>I</td></tr>
+        <tr><td>Eval 20 câu + usability</td><td>R/A</td><td>C</td><td>C</td><td>I</td><td>C</td><td>I</td></tr>
+        <tr><td>Duyệt/thực hiện pilot giới hạn</td><td>R</td><td>C</td><td>C</td><td>C</td><td>I</td><td>A</td></tr>
+      </tbody>
+    </table>
+    <p class="small"><b>R</b> thực hiện; <b>A</b> chịu trách nhiệm cuối; <b>C</b> tham vấn; <b>I</b> được thông báo. Mỗi công việc có đúng một A. “Minh” có thể đồng thời R/A do làm một mình.</p>
+    <div class="footer">Trang 2 / 4</div>
+  </section>
+
+  <section class="page compact">
+    <h1>AI Team Design</h1>
+    <div class="meta">Quy mô: một người phụ trách | Giai đoạn: MVP trợ lý học tập AI</div>
+    <h2>Kiến trúc: Embedded</h2>
+    <p>Năng lực AI nằm trong squad sản phẩm; Dương Hải Minh phụ trách sản phẩm và tích hợp AI. Một MVP do một người quản lý chưa cần AI hub cho nhiều team (Centralized) hay phối hợp nhiều team (Hybrid). Chuyên gia ngoài team chỉ tham gia review theo nhu cầu.</p>
+    <h2>Core Roles và năng lực mở rộng</h2>
+    <table>
+      <thead><tr><th style="width:27%">Role/capability</th><th style="width:20%">Ưu tiên</th><th style="width:22%">Owner</th><th style="width:31%">Phạm vi</th></tr></thead>
+      <tbody>
+        <tr><td>Product owner / pilot coordination</td><td>Core - ngay</td><td>Dương Hải Minh</td><td>Use case, tiêu chí MVP, phối hợp mentor và xin duyệt.</td></tr>
+        <tr><td>AI application / RAG builder</td><td>Core - ngay</td><td>Dương Hải Minh</td><td>Hỏi đáp tài liệu, truy xuất và hiển thị nguồn; mức kỹ năng cần tự đánh giá.</td></tr>
+        <tr><td>Evaluation / data quality</td><td>Core - ngay</td><td>Minh thực hiện; mentor/user review</td><td>20 câu hỏi, chấm theo nguồn, phân loại lỗi.</td></tr>
+        <tr><td>Chuyên gia nội dung/giáo dục</td><td>Extended - trước pilot</td><td>Chưa xác nhận</td><td>Giảng viên/mentor kiểm tra tài liệu và tiêu chí.</td></tr>
+        <tr><td>Bảo mật / quản trị dữ liệu</td><td>Extended - trước dữ liệu không công khai</td><td>Chưa xác nhận</td><td>IT/Data rà soát lưu trữ, quyền truy cập, xóa.</td></tr>
+        <tr><td>MLOps/monitoring production</td><td>Chưa ưu tiên</td><td>Chưa phân công</td><td>Xem xét lại nếu pilot được duyệt và vận hành liên tục.</td></tr>
+      </tbody>
+    </table>
+    <h2>Priority Resourcing: 2 gap ưu tiên</h2>
+    <table>
+      <thead><tr><th style="width:25%">Gap</th><th style="width:17%">Cách</th><th style="width:33%">Lý do</th><th style="width:25%">Khi cần</th></tr></thead>
+      <tbody>
+        <tr><td>Review độc lập về độ đúng và hữu ích</td><td><b>Partner</b> với mentor/giảng viên và sinh viên thử</td><td>Review theo đợt phù hợp MVP hơn tuyển chuyên gia toàn thời gian.</td><td>Trước pilot; nếu thiếu reviewer, chưa kết luận đáp ứng nhu cầu.</td></tr>
+        <tr><td>Quyền tài liệu và xử lý dữ liệu</td><td><b>Partner</b> với chủ tài liệu và cán bộ IT/Data</td><td>Quyền và quy định phụ thuộc hệ thống của trường; không tự suy đoán hoặc thuê ngoài dữ liệu nhạy cảm.</td><td>Trước khi dùng tài liệu không công khai/dữ liệu cá nhân.</td></tr>
+      </tbody>
+    </table>
+    <div class="note warn"><b>Resourcing:</b> Chưa Hire vì chưa có workload chứng minh nhu cầu toàn thời gian. Ưu tiên Partner; nếu Minh chưa đủ năng lực RAG thì thu hẹp MVP hoặc tìm mentor/đối tác kỹ thuật trước pilot.</div>
+    <h2>Squad Goal</h2>
+    <div class="goal">Squad cá nhân do Dương Hải Minh phụ trách sở hữu MVP hỏi đáp PDF có trích dẫn và đưa dự án đến MVP được đánh giá bằng 20 câu hỏi, sẵn sàng cho pilot giới hạn khi có đủ phê duyệt.</div>
+    <div class="footer">Trang 3 / 4</div>
+  </section>
+
+  <section class="page compact">
+    <h1>Team Health &amp; Growth Plan</h1>
+    <div class="meta">Đánh giá solo ban đầu dựa trên bằng chứng hiện có; cập nhật sau khi MVP chạy thử.</div>
+    <h2>Team Health (1-5)</h2>
+    <table>
+      <thead><tr><th style="width:22%">Khía cạnh</th><th style="width:9%">Điểm</th><th>Cơ sở / diễn giải</th></tr></thead>
+      <tbody>
+        <tr><td>Chất lượng AI</td><td class="score">1</td><td>Chưa có eval; chưa chứng minh đúng/sai hoặc ổn định. Điểm là thiếu kiểm chứng, không kết luận chất lượng chắc chắn kém.</td></tr>
+        <tr><td>Tiến độ</td><td class="score">2</td><td>Đã có phạm vi/kế hoạch; chưa có bằng chứng MVP chạy hoặc milestone kỹ thuật hoàn thành.</td></tr>
+        <tr><td>Tinh thần team</td><td class="score">3*</td><td>*Squad một người: proxy tự điều phối, không đo tinh thần nhóm hay so sánh thành viên.</td></tr>
+        <tr><td>Tốc độ ra sản phẩm</td><td class="score">2</td><td>Chưa có release hay cycle-time baseline; cần đo khi có luồng demo.</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>Vấn đề ưu tiên:</b> Chưa có bằng chứng về độ đúng và khả năng truy nguồn, có thể chặn pilot tiếp theo. Không thể so sánh chênh lệch giữa thành viên khi làm solo.</div>
+    <h2>Competency cần nâng</h2>
+    <p><b>Role:</b> AI Application / RAG Builder. <b>Level gần nhất:</b> L1 - AI Literate (tạm tính, cần Minh xác nhận). <b>Năng lực tiếp theo:</b> Evaluation / quality evaluation, hướng tới thực hành L2 - AI Practitioner.</p>
+    <h2>Growth Plan 30 ngày</h2>
+    <table>
+      <thead><tr><th style="width:23%">Vấn đề</th><th style="width:34%">Hành động</th><th style="width:13%">Owner</th><th style="width:12%">Deadline</th><th style="width:18%">Dấu hiệu hoàn thành</th></tr></thead>
+      <tbody>
+        <tr><td>Thiếu bộ eval</td><td>Tạo 20 golden cases từ tài liệu công khai/được phép, có đáp án/bằng chứng kỳ vọng và nguồn.</td><td>Dương Hải Minh</td><td>20-10-2026</td><td>20 case có nguồn và tiêu chí chấm; không dùng tài liệu chưa được phép.</td></tr>
+        <tr><td>Chưa biết chất lượng MVP</td><td>Chạy eval, phân loại đúng/thiếu/sai/không nguồn, sửa lỗi lặp lại. Nếu chưa có MVP, làm luồng demo PDF → trả lời → trích dẫn trước.</td><td>Dương Hải Minh</td><td>02-11-2026</td><td>Demo và báo cáo 20 case trước/sau; không tuyên bố độ chính xác khi thiếu số liệu.</td></tr>
+        <tr><td>Chưa rõ quyền và yêu cầu dữ liệu</td><td>Gửi luồng dữ liệu xin review từ chủ tài liệu và IT/Data; ghi lại điều kiện và việc còn chờ.</td><td>Dương Hải Minh</td><td>12-11-2026</td><td>Có phản hồi/follow-up; checklist quyền, lưu trữ, truy cập, xóa trước khi dùng dữ liệu không công khai.</td></tr>
+      </tbody>
+    </table>
+    <div class="footer">Trang 4 / 4</div>
+  </section>
+</body>
+</html>
